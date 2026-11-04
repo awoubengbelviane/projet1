@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ANLB TECH accompagne vos projets avec des solutions digitales, créatives et innovantes.">
+  <meta name="theme-color" content="#071329">
+  <title>ANLB TECH | De l'idée à la réalité</title>
+  <style>
+    :root{
+      --red:#d71920;--red2:#ff3545;--blue:#0756b5;--blue2:#1688ff;
+      --navy:#071329;--navy2:#0b2045;--ink:#14233b;--muted:#68758b;
+      --pale:#f3f7ff;--line:#e4eaf3;--white:#fff;
+      --shadow:0 18px 48px rgba(10,35,75,.11);--radius:20px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body{font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);line-height:1.7;background:#fff}
+    img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}
+    .container{width:min(91%,1200px);margin:auto}
+    .top-line{height:4px;background:linear-gradient(90deg,var(--red) 0 50%,var(--blue2) 50% 100%)}
+
+    /* Navigation */
+    header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);box-shadow:0 4px 24px rgba(7,19,41,.07)}
+    .navbar{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{display:flex;align-items:center;flex-shrink:0}
+    .logo img{width:116px;height:78px;object-fit:contain}
+    .nav-links{display:flex;align-items:center;gap:clamp(14px,2.1vw,28px);list-style:none}
+    .nav-links a{font-size:14px;font-weight:700;color:#25344d;transition:.25s}
+    .nav-links a:hover,.nav-links a:focus{color:var(--red)}
+    .nav-cta{padding:12px 19px;border-radius:9px;background:linear-gradient(110deg,var(--red),#a90d1b);color:#fff;font-size:13px;font-weight:800;box-shadow:0 8px 20px rgba(215,25,32,.18);transition:.25s;white-space:nowrap}
+    .nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(215,25,32,.28)}
+    .menu-toggle{display:none;width:44px;height:44px;border:0;border-radius:10px;background:#edf3ff;color:var(--blue);font-size:25px;cursor:pointer}
+
+    /* Accueil */
+    .hero{position:relative;isolation:isolate;overflow:hidden;min-height:660px;display:flex;align-items:center;padding:85px 0;background:radial-gradient(ellipse at 72% 8%,rgba(15,87,190,.34),transparent 39%),radial-gradient(ellipse at 5% 100%,rgba(215,25,32,.13),transparent 38%),linear-gradient(120deg,#050b18 0%,#0a1b3b 52%,#030817 100%)}
+    .hero::before{content:"";position:absolute;z-index:-1;inset:-28%;pointer-events:none;opacity:.95;transform:rotate(-8deg);background:
+      linear-gradient(145deg,transparent 43%,rgba(0,90,255,.08) 44%,rgba(0,111,255,.7) 45%,transparent 47%),
+      linear-gradient(145deg,transparent 49%,rgba(215,25,32,.12) 50%,rgba(255,25,73,.9) 51%,rgba(215,25,32,.12) 52%,transparent 54%),
+      linear-gradient(145deg,transparent 56%,rgba(0,119,255,.62) 57%,transparent 58%),
+      linear-gradient(145deg,transparent 61%,rgba(177,36,180,.42) 62%,transparent 63%)}
+    .hero::after{content:"";position:absolute;z-index:-1;width:560px;height:380px;right:-190px;bottom:-220px;background:radial-gradient(ellipse,rgba(0,111,255,.38),transparent 70%);filter:blur(30px);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:58px;position:relative;z-index:1}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border:1px solid rgba(255,89,101,.35);border-radius:30px;background:rgba(215,25,32,.14);color:#ff858b;font-size:12px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:23px}
+    .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff4b58;box-shadow:0 0 12px #ff4b58}
+    .hero h1{max-width:680px;color:#fff;font-size:clamp(39px,5vw,64px);line-height:1.08;letter-spacing:-1.8px;margin-bottom:24px}
+    .hero h1 span{background:linear-gradient(95deg,#ff555f,#ff9b9f);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:590px;color:#d1dced;font-size:16px;margin-bottom:31px}
+    .hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;padding:14px 22px;border-radius:9px;font-weight:800;font-size:14px;transition:.25s;border:1px solid transparent}
+    .btn-primary{background:linear-gradient(105deg,#ed1c2b,#b90d20);color:#fff;box-shadow:0 9px 25px rgba(215,25,32,.3)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 13px 30px rgba(215,25,32,.42)}
+    .btn-outline{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.07);color:#fff}
+    .btn-outline:hover{background:rgba(7,86,181,.55);border-color:#4b9dff}
+    /* IMAGE 3D DE LA PAGE D'ACCUEIL */
+
+.hero-visual {
+    position: relative;
+    width: 58%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    aspect-ratio: auto;
+
+    margin-left: auto;
+    padding-right: 0;
+}
+
+.hero-visual img {
+    position: relative;
+    display: block;
+
+    width: 135%;
+    max-width: 850px;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    transform: translateX(45px) scale(1.08);
+    filter: drop-shadow(0 15px 30px rgba(0, 100, 255, 0.25));
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+    .hero-visual {
+        width: 100%;
+        min-height: auto;
+        justify-content: center;
+        margin: 20px 0 0;
+    }
+
+    .hero-visual img {
+        width: 115%;
+        max-width: 600px;
+        transform: translateX(0) scale(1);
+    }
+}
+    .hero-badge{position:absolute;left:-18px;bottom:28px;z-index:2;padding:14px 19px;background:#fff;border-left:4px solid var(--red);border-radius:11px;box-shadow:var(--shadow)}
+    .hero-badge strong{display:block;color:var(--blue-dark,#092f78);font-size:15px}.hero-badge small{color:var(--muted);font-size:12px}
+
+    /* Bande confiance et sections */
+    .trust{padding:25px 0;border-bottom:1px solid var(--line);background:#fff}
+    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
+    .trust-item{font-weight:800;color:#263650;font-size:14px}.trust-item span{color:var(--red);font-size:19px;margin-right:8px}
+    .section{padding:92px 0}
+    .section-heading{text-align:center;max-width:760px;margin:0 auto 48px}
+    .section-label{font-size:14px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+    .section-title{font-size:clamp(30px,4vw,43px);line-height:1.2;letter-spacing:-.8px;color:var(--ink);margin-bottom:16px}
+    .section-description{color:var(--muted);font-size:15px}
+
+    /* Services */
+    .services{background:linear-gradient(180deg,#fff,#f5f8ff)}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .service-card{position:relative;padding:29px 27px;background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:0 7px 22px rgba(12,39,82,.045);transition:.3s;overflow:hidden}
+    .service-card::before{content:"";position:absolute;top:0;left:0;width:0;height:4px;background:linear-gradient(90deg,var(--red),var(--blue2));transition:.3s}
+    .service-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:#cbdaf0}.service-card:hover::before{width:100%}
+    .service-icon{width:53px;height:53px;display:grid;place-items:center;border-radius:14px;background:#edf4ff;color:var(--blue);font-size:25px;margin-bottom:19px}
+    .service-card:nth-child(even) .service-icon{background:#fff0f1;color:var(--red)}
+    .service-card h3{font-size:18px;color:#123b78;margin-bottom:11px}.service-card p{font-size:14px;color:var(--muted)}
+    .service-link{display:inline-block;margin-top:18px;color:var(--red);font-size:13px;font-weight:850}.service-link:hover{color:var(--blue)}
+
+    /* A propos */
+    .about{background:linear-gradient(130deg,#edf4ff 0%,#fff 58%,#fff1f2 100%)}
+    .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:62px;align-items:center}
+    .about-image{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;border-radius:23px;border:5px solid #fff;background:linear-gradient(145deg,#092f78,#0756b5);box-shadow:0 20px 48px rgba(7,86,181,.19)}
+    .about-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .about-copy p{color:var(--muted);margin:0 0 15px;font-size:15px}.about-copy .section-title{font-size:clamp(30px,3.7vw,40px)}
+    .values{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:24px}.value{font-size:14px;font-weight:800;color:#263650}.value span{color:var(--red);margin-right:8px}
+
+    /* Réalisations */
+    .portfolio{background:#fff}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .project-card{overflow:hidden;border:1px solid var(--line);border-radius:17px;background:#fff;box-shadow:0 8px 25px rgba(12,39,82,.06);transition:.3s}
+    .project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .project-image{height:235px;background:linear-gradient(135deg,#e9f1ff,#fff0f1);overflow:hidden}
+    .project-image img{width:100%;height:100%;object-fit:cover;transition:transform .45s}.project-card:hover .project-image img{transform:scale(1.045)}
+    .project-info{padding:20px 21px 23px}.project-type{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:900;color:var(--red)}
+    .project-info h3{font-size:18px;color:var(--ink);margin:5px 0}.project-info p{font-size:13px;color:var(--muted)}
+    .portfolio-note{text-align:center;color:var(--muted);font-size:13px;margin-top:25px}
+
+    /* Equipe */
+    .team{background:linear-gradient(180deg,#f5f8ff,#fff)}
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;max-width:950px;margin:auto}
+    .team-card{text-align:center;padding:30px 22px 27px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 25px rgba(12,39,82,.05);transition:.3s}
+    .team-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .team-photo{width:142px;height:142px;margin:0 auto 18px;border-radius:50%;overflow:hidden;border:5px solid #fff;outline:3px solid #dce9fb;background:linear-gradient(145deg,#0a3479,#1688ff);display:grid;place-items:center;color:#fff;font-size:38px;font-weight:900}
+    .team-photo img{width:100%;height:100%;object-fit:cover}
+    .team-card h3{font-size:18px;color:var(--ink);margin-bottom:3px}.team-role{font-size:13px;font-weight:800;color:var(--red)}
+    .team-card p{font-size:13px;color:var(--muted);margin-top:10px}
+
+    /* Témoignages */
+    .testimonials{background:linear-gradient(135deg,#edf4ff,#fff 60%,#fff1f2)}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .testimonial-card{padding:27px;background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:0 8px 25px rgba(12,39,82,.05)}
+    .quote-mark{font-size:36px;line-height:1;color:var(--red);font-weight:900}.testimonial-card blockquote{font-size:14px;color:var(--muted);margin:12px 0 20px}
+    .testimonial-person{border-top:1px solid var(--line);padding-top:15px;font-size:13px}.testimonial-person strong{display:block;color:var(--ink)}.testimonial-person span{color:var(--muted)}
+    .honest-note{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
+
+    /* Contact */
+    .contact{background:linear-gradient(135deg,#eaf2ff,#fff 55%,#fff0f1)}
+    .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+    .contact-copy .section-label{text-align:left}.contact-copy .section-title{font-size:clamp(30px,3.7vw,40px)}
+    .contact-copy>p{color:var(--muted);font-size:15px;margin-bottom:25px}
+    .contact-item{display:flex;align-items:center;gap:15px;margin:20px 0}.contact-icon{width:49px;height:49px;flex-shrink:0;display:grid;place-items:center;border-radius:13px;background:#fff;color:var(--red);font-size:20px;box-shadow:0 5px 16px rgba(12,39,82,.07)}
+    .contact-item strong{display:block;font-size:13px;color:#123b78}.contact-item a,.contact-item span{font-size:14px;color:var(--muted);overflow-wrap:anywhere}.contact-item a:hover{color:var(--red)}
+    .contact-form{padding:34px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--red);border-radius:19px;box-shadow:var(--shadow)}
+    .contact-form h3{font-size:24px;color:#123b78;margin-bottom:5px}.form-description{font-size:13px;color:var(--muted);margin-bottom:22px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}.form-group{margin-bottom:17px}.form-group label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 14px;border:1px solid #dce4ef;border-radius:9px;background:#fbfcff;outline:none;font-size:14px;transition:.2s}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(7,86,181,.09);background:#fff}
+    .form-group textarea{min-height:125px;resize:vertical}.submit-btn{width:100%;border:0;cursor:pointer}.form-note{font-size:11px;color:var(--muted);margin-top:12px}
+
+    /* Footer */
+    footer{position:relative;background:#07172f;color:#fff;padding:62px 0 20px}
+    footer::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--red) 0 50%,var(--blue2) 50%)}
+    .footer-grid{display:grid;grid-template-columns:1.25fr .75fr 1fr;gap:48px;padding-bottom:38px}
+    .footer-logo{width:115px;height:105px;object-fit:contain;background:#fff;border-radius:10px;padding:5px;margin-bottom:15px}
+    .footer-about p,.footer-contact p{font-size:13px;color:#bdc9dc}.footer-grid h3{font-size:16px;margin:8px 0 18px;color:#fff}
+    .footer-links{list-style:none}.footer-links li{margin:10px 0}.footer-links a,.footer-contact a{font-size:13px;color:#bdc9dc;transition:.2s}.footer-links a:hover,.footer-contact a:hover{color:#ff7b83}
+    .footer-bottom{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);padding-top:18px;color:#bdc9dc;font-size:12px}.footer-bottom span{color:#ff6872}
+
+    @media(max-width:980px){.nav-links{gap:13px}.nav-links a{font-size:13px}.nav-cta{padding:11px 14px;font-size:12px}.hero-grid{gap:35px}.services-grid,.portfolio-grid,.testimonial-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{gap:28px}}
+    @media(max-width:760px){
+      .navbar{min-height:78px}.logo img{width:100px;height:68px}.menu-toggle{display:block}.nav-cta{display:none}
+      .nav-links{display:none;position:absolute;top:78px;left:0;width:100%;padding:12px 5%;background:#fff;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}
+      .nav-links.open{display:flex}.nav-links li a{display:block;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+      .hero{min-height:0;padding:66px 0 75px}.hero-grid{grid-template-columns:1fr;gap:42px}.hero h1{font-size:clamp(38px,9vw,52px)}.hero-copy{font-size:15px}.hero-visual{width:min(100%,510px);margin:auto;min-height:0}.hero-badge{left:10px;bottom:15px}
+      .trust-grid{grid-template-columns:1fr;gap:12px}.section{padding:70px 0}.about-grid,.contact-grid{grid-template-columns:1fr;gap:35px}.about-image{max-width:520px;margin:auto}.team-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.footer-about{grid-column:1/-1}
+    }
+    @media(max-width:520px){.container{width:90%}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%}.services-grid,.portfolio-grid,.testimonial-grid,.team-grid{grid-template-columns:1fr}.project-image{height:220px}.team-card{max-width:360px;width:100%;margin:auto}.form-row{grid-template-columns:1fr;gap:0}.contact-form{padding:25px 19px}.values{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-about{grid-column:auto}.footer-bottom{flex-direction:column}.section-title{font-size:30px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <div class="top-line"></div>
+  <header>
+    <div class="container navbar">
+      <a href="#accueil" class="logo" aria-label="ANLB TECH - Accueil"><img src="images/3.png" alt="Logo ANLB TECH"></a>
+      <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <nav aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="#accueil">Accueil</a></li><li><a href="#services">Services</a></li><li><a href="#apropos">À propos</a></li>
+          <li><a href="#realisations">Réalisations</a></li><li><a href="#equipe">Équipe</a></li><li><a href="#temoignages">Témoignages</a></li><li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="nav-cta">Parlons de votre projet&nbsp; →</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="eyebrow">Votre partenaire digital</div>
+          <h1>De l'idée à la réalité, <span>donnons vie à vos projets.</span></h1>
+          <p class="hero-copy">ANLB TECH conçoit des solutions numériques et créatives qui aident les entreprises, les entrepreneurs et les particuliers à avancer. Nous associons technologie, créativité et rigueur pour transformer vos idées en réalisations concrètes.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Démarrer un projet&nbsp; →</a>
+            <a href="#services" class="btn btn-outline">Découvrir nos services</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <!-- Remplace images/b.jpeg par le chemin de ton visuel d'accueil si nécessaire. -->
+          <img src="images/K.png" alt="Présentation visuelle de ANLB TECH">
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="trust" aria-label="Nos engagements"><div class="container trust-grid">
+      <div class="trust-item"><span>✓</span> Professionnalisme</div><div class="trust-item"><span>✦</span> Créativité</div><div class="trust-item"><span>↗</span> Innovation</div>
+    </div></section>
+
+    <section class="section services" id="services"><div class="container">
+      <div class="section-heading"><div class="section-label">Nos expertises</div><h2 class="section-title">Des solutions digitales pour vos ambitions</h2><p class="section-description">Nous mettons la technologie et la créativité au service de vos projets et de votre réussite.</p></div>
+      <div class="services-grid">
+        <article class="service-card"><div class="service-icon">⌘</div><h3>Développement web et mobile</h3><p>Création de sites web modernes, d'applications mobiles et de plateformes adaptées à vos besoins. Nous développons des solutions performantes et responsives.</p><a href="#contact" class="service-link">Demander un devis →</a></article>
+        <article class="service-card"><div class="service-icon">✎</div><h3>Design graphique</h3><p>Logos, affiches, flyers, cartes de visite et supports publicitaires pour donner à votre entreprise une identité visuelle professionnelle et mémorable.</p><a href="#contact" class="service-link">Demander un devis →</a></article>
+        <article class="service-card"><div class="service-icon">◎</div><h3>Marketing digital</h3><p>Stratégies de communication, gestion des réseaux sociaux et campagnes publicitaires pour améliorer votre visibilité et développer votre activité.</p><a href="#contact" class="service-link">Demander un devis →</a></article>
+        <article class="service-card"><div class="service-icon">▧</div><h3>Design UI/UX</h3><p>Création d'interfaces modernes, élégantes et intuitives. Nous accordons une attention particulière à l'expérience utilisateur et à l'ergonomie.</p><a href="#contact" class="service-link">Demander un devis →</a></article>
+        <article class="service-card"><div class="service-icon">✧</div><h3>Formation aux outils d'IA</h3><p>Formation à l'utilisation des outils d'intelligence artificielle pour améliorer la productivité, faciliter le travail et développer de nouvelles compétences.</p><a href="#contact" class="service-link">Demander un devis →</a></article>
+        <article class="service-card"><div class="service-icon">⚙</div><h3>Automatisation et solutions IA</h3><p>Automatisation des tâches répétitives, création de workflows intelligents et intégration de solutions IA pour optimiser vos activités.</p><a href="#contact" class="service-link">Demander un devis →</a></article>
+      </div>
+    </div></section>
+
+    <section class="section about" id="apropos"><div class="container about-grid">
+      <div class="about-image"><img src="images/a.jpeg" alt="Identité visuelle ANLB TECH"></div>
+      <div class="about-copy"><div class="section-label">Qui sommes-nous ?</div><h2 class="section-title">L'innovation commence par une bonne idée.</h2>
+        <p>ANLB TECH est une structure spécialisée dans les solutions digitales, la création graphique et les technologies innovantes.</p>
+        <p>Notre ambition est d'accompagner les entreprises, les entrepreneurs et les particuliers dans la réalisation de leurs projets grâce à des solutions modernes, accessibles et adaptées.</p>
+        <p>Nous croyons que chaque projet mérite de l'attention, de la créativité et surtout un travail réalisé avec rigueur.</p>
+        <div class="values"><div class="value"><span>✓</span> Rigueur et fiabilité</div><div class="value"><span>✓</span> Créativité</div><div class="value"><span>✓</span> Innovation</div><div class="value"><span>✓</span> Satisfaction client</div></div>
+      </div>
+    </div></section>
+
+    <section class="section portfolio" id="realisations"><div class="container">
+      <div class="section-heading"><div class="section-label">Notre portfolio</div><h2 class="section-title">Des idées transformées en réalisations</h2><p class="section-description">Découvrez quelques projets et créations réalisés par ANLB TECH. Cette galerie pourra évoluer au fil de tes nouveaux travaux.</p></div>
+      <div class="portfolio-grid">
+        <article class="project-card"><div class="project-image"><img src="images/c.jpeg" alt="Aperçu d'un projet de design graphique" onerror="this.style.display='none'"></div><div class="project-info"><span class="project-type">Design graphique</span><h3>Identité visuelle & branding</h3><p>Visuel de ANLB TECH concu pour une promotion.</p></div></article>
+        <article class="project-card"><div class="project-image"><img src="images/g.jpeg" alt="Aperçu d'un projet de site web" onerror="this.style.display='none'"></div><div class="project-info"><span class="project-type">Développement web</span><h3>Conception de site web</h3><p>Un client nous a fait confiance avec la conception de son site web.</p></div></article>
+        <article class="project-card"><div class="project-image"><img src="images/f.jpeg" alt="Aperçu d'un visuel publicitaire" onerror="this.style.display='none'"></div><div class="project-info"><span class="project-type">Communication visuelle</span><h3>Affiche & support publicitaire</h3><p>De la conception jusqu'au mockup nous les realisons.</p></div></article>
+      </div>
+
+    </div></section>
+
+    <section class="section team" id="equipe"><div class="container">
+      <div class="section-heading"><div class="section-label">Les talents derrière vos projets</div><h2 class="section-title">Notre équipe</h2><p class="section-description">Trois profils complémentaires réunis autour de la créativité, de la technologie et de la qualité.</p></div>
+      <div class="team-grid">
+        <article class="team-card"><div class="team-photo"><img src="images/d.jpeg" alt="Portrait du premier membre" onerror="this.style.display='none';this.parentElement.textContent='01'"></div><h3>Ing Belviane Awoubeng</h3><div class="team-role">DESIGNER WEB/GRAPHIQUE</div><p>Conçoit des interfaces web modernes, élégantes et attractives, tout en créant des visuels professionnels qui renforcent l'identité visuelle et l'image de marque des entreprises.</p></article>
+        <article class="team-card"><div class="team-photo"><img src="images/Y.jpeg" alt="Portrait du deuxième membre" onerror="this.style.display='none';this.parentElement.textContent='02'"></div><h3>Ing Frank Ananfack</h3><div class="team-role">DEVELOPPER FULLSTACK</div><p>Conçoit, développe et maintient des applications web complètes, en intervenant aussi bien sur le frontend que sur le backend, pour créer des solutions performantes, sécurisées et adaptées aux besoins des clients.</p></article>
+        <article class="team-card"><div class="team-photo"><img src="images/T.jpeg" alt="Portrait du troisième membre" onerror="this.style.display='none';this.parentElement.textContent='03'"></div><h3>Ing Edwige Ango</h3><div class="team-role">COMMUNITY MANAGERK</div><p>Gère et anime les réseaux sociaux, développe la visibilité des marques et crée une relation durable avec leur communauté.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section testimonials" id="temoignages"><div class="container">
+      <div class="section-heading"><div class="section-label">Ils nous font confiance</div><h2 class="section-title">La satisfaction au cœur de notre travail</h2><p class="section-description">Les retours de nos clients seront présentés ici pour partager leurs expériences avec ANLB TECH.</p></div>
+      <div class="testimonial-grid">
+        <article class="testimonial-card"><div class="quote-mark">“</div><blockquote>Un travail remarquable ! Le résultat a dépassé mes attentes. J'ai particulièrement apprécié la créativité, le professionnalisme et le souci du détail. Je recommande vivement ANLB TECH.</blockquote><div class="testimonial-person"><strong>Ing Junior Nana</strong><span>Client — Charte graphique</span></div></article>
+        <article class="testimonial-card"><div class="quote-mark">“</div><blockquote>Une équipe sérieuse et à l'écoute. Mon projet a été réalisé avec beaucoup de soin et de professionnalisme. Le résultat est moderne, esthétique et parfaitement adapté à mes besoins.</blockquote><div class="testimonial-person"><strong>Mme Leslie Tio</strong><span>Client — Accompagnement digital</span></div></article>
+        <article class="testimonial-card"><div class="quote-mark">“</div><blockquote>Une belle expérience de collaboration ! ANLB TECH se distingue par ses idées innovantes, sa disponibilité et sa volonté de fournir un travail de qualité.</blockquote><div class="testimonial-person"><strong>Ing Teophile</strong><span>Client — Lancement campagne en ligne</span></div></article>
+      </div>
+    </div></section>
+
+    <section class="section contact" id="contact"><div class="container contact-grid">
+      <div class="contact-copy"><div class="section-label">Parlons de votre projet</div><h2 class="section-title">Construisons quelque chose de remarquable ensemble.</h2>
+        <p>Vous avez une idée, une entreprise à développer ou un projet à concrétiser ? Présentez-nous votre besoin. ANLB TECH est à votre écoute pour étudier votre demande et vous proposer une solution adaptée.</p>
+        <div class="contact-item"><div class="contact-icon">✉</div><div><strong>Adresse e-mail</strong><a href="mailto:awoubengbelviane@gmail.com">awoubengbelviane@gmail.com</a></div></div>
+        <div class="contact-item"><div class="contact-icon">☎</div><div><strong>Téléphone / WhatsApp</strong><a href="https://wa.me/237651015618" target="_blank" rel="noopener">+237 651 015 618</a><br><a href="https://wa.me/237694776813" target="_blank" rel="noopener">+237 694 776 813</a></div></div>
+        <div class="contact-item"><div class="contact-icon">⌖</div><div><strong>Localisation</strong><span>Douala, Cameroun</span></div></div>
+      </div>
+      <form class="contact-form" id="contact-form"><h3>Parlez-nous de votre projet</h3><p class="form-description">Remplissez ce formulaire. Votre demande sera préparée dans votre application de messagerie.</p>
+        <div class="form-row"><div class="form-group"><label for="name">Nom complet *</label><input type="text" id="name" name="name" placeholder="Votre nom" autocomplete="name" required></div><div class="form-group"><label for="email">Adresse e-mail *</label><input type="email" id="email" name="email" placeholder="nom@exemple.com" autocomplete="email" required></div></div>
+        <div class="form-row"><div class="form-group"><label for="phone">Téléphone</label><input type="tel" id="phone" name="phone" placeholder="+237 ..." autocomplete="tel"></div><div class="form-group"><label for="service">Service souhaité *</label><select id="service" name="service" required><option value="">Choisir un service</option><option>Développement web et mobile</option><option>Design graphique</option><option>Marketing digital</option><option>Design UI/UX</option><option>Formation aux outils d'IA</option><option>Automatisation et solutions IA</option><option>Autre demande</option></select></div></div>
+        <div class="form-group"><label for="message">Décrivez votre projet *</label><textarea id="message" name="message" placeholder="Expliquez-nous votre besoin..." required></textarea></div>
+        <button type="submit" class="btn btn-primary submit-btn">Envoyer ma demande&nbsp; →</button><p class="form-note">L'envoi ouvre votre messagerie avec les informations déjà préparées. Aucun message n'est envoyé automatiquement par le site.</p>
+      </form>
+    </div></section>
+  </main>
+
+  <footer><div class="container">
+    <div class="footer-grid">
+      <div class="footer-about"><img src="images/logo anlb tech.jpeg" alt="Logo ANLB TECH" class="footer-logo"><p><strong>De l'idée à la réalité.</strong><br>ANLB TECH transforme vos ambitions en solutions digitales et créatives, avec rigueur et engagement.</p></div>
+      <div><h3>Navigation</h3><ul class="footer-links"><li><a href="#accueil">Accueil</a></li><li><a href="#services">Nos services</a></li><li><a href="#apropos">À propos</a></li><li><a href="#realisations">Réalisations</a></li><li><a href="#equipe">Notre équipe</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="footer-contact"><h3>Nos coordonnées</h3><p><a href="mailto:awoubengbelviane@gmail.com">awoubengbelviane@gmail.com</a></p><p><a href="https://wa.me/237651015618" target="_blank" rel="noopener">WhatsApp : +237 651 015 618</a></p><p><a href="https://wa.me/237694776813" target="_blank" rel="noopener">WhatsApp : +237 694 776 813</a></p><p>Douala, Cameroun</p></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year"></span> ANLB TECH. Tous droits réservés.</p><p>De l'idée à la réalité. <span>♥</span></p></div>
+  </div>
+  <li>
+    <a href="https://www.behance.net/belvianawouben"
+       target="_blank"
+       rel="noopener noreferrer">
+        Mon Portfolio
+    </a>
+</li>
+</footer>
+
+  <script>
+    const menuButton=document.querySelector('.menu-toggle');
+    const navLinks=document.querySelector('.nav-links');
+    menuButton.addEventListener('click',()=>{
+      const opened=navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded',String(opened));
+      menuButton.setAttribute('aria-label',opened?'Fermer le menu':'Ouvrir le menu');
+      menuButton.textContent=opened?'×':'☰';
+    });
+    document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('click',()=>{
+      navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false');
+      menuButton.setAttribute('aria-label','Ouvrir le menu');menuButton.textContent='☰';
+    }));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('contact-form').addEventListener('submit',function(event){
+      event.preventDefault();const data=new FormData(this);
+      const subject=encodeURIComponent('Nouvelle demande de projet - ANLB TECH');
+      const body=encodeURIComponent(`Nom : ${data.get('name')}\nE-mail : ${data.get('email')}\nTéléphone : ${data.get('phone')||'Non renseigné'}\nService : ${data.get('service')}\n\nMessage :\n${data.get('message')}`);
+      window.location.href=`mailto:awoubengbelviane@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
